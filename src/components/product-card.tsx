@@ -36,7 +36,7 @@ export function ProductCard({ product }: ProductCardProps) {
     phone_number: z
       .string()
       .min(10, { message: 'Telefone deve ter pelo menos 10 dígitos' }),
-    street_number: z
+    street_number: z.coerce
       .number()
       .min(1, { message: 'Número da rua é obrigatório' }),
     street: z
@@ -147,7 +147,6 @@ export function ProductCard({ product }: ProductCardProps) {
               onSubmit={handleSubmit(buyProduct)}
               className="flex flex-col gap-5 mt-5"
             >
-              {/* Campo Nome */}
               <div>
                 <Input placeholder="Nome" {...register('name')} />
                 <AnimatePresence>
@@ -210,6 +209,7 @@ export function ProductCard({ product }: ProductCardProps) {
               <div>
                 <Input
                   placeholder="Número da Rua"
+                  type="number"
                   {...register('street_number')}
                 />
                 <AnimatePresence>
