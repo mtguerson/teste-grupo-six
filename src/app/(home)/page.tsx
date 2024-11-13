@@ -1,5 +1,10 @@
 import { getVideoData } from '@/api/get-video-data'
 import { ProductCard } from '@/components/product-card'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Home',
+}
 
 export default async function Home() {
   const video = await getVideoData()

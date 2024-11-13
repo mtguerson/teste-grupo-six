@@ -1,4 +1,4 @@
-import { api } from "@/services/http-client";
+import { api } from '@/services/http-client'
 
 export interface BuyProductRequest {
   name: string
@@ -20,7 +20,9 @@ export interface BuyProductResponse {
   object: null
 }
 
-
-export async function buyProductFn({ product_id, ...params }: BuyProductRequest) {
+export async function buyProductFn({
+  product_id,
+  ...params
+}: BuyProductRequest) {
   await api.post<BuyProductResponse>(`/buy/${product_id}`, params)
 }
